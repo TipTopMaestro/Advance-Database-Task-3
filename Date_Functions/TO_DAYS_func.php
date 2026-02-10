@@ -1,7 +1,7 @@
 <?php
 include '../db.php';
 
-$sql = "SELECT TO_DAYS('2023-10-15') AS Result;";
+$sql = "SELECT TO_DAYS(EntryDate) AS Result FROM products LIMIT 1;";
 $result = $conn->query($sql);
 ?>
 <head>

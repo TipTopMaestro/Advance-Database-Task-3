@@ -1,7 +1,7 @@
 <?php
 include '../db.php';
 
-$sql = "SELECT TIMESTAMP('2023-10-15') AS Result;";
+$sql = "SELECT TIMESTAMP(EntryDate) AS Result From products LIMIT 5;";
 $result = $conn->query($sql);
 ?>
 <head>

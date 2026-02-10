@@ -1,7 +1,7 @@
 <?php
 include '../db.php';
 
-$sql = "SELECT YEAR('2023-10-15') AS Result;";
+$sql = "SELECT EntryDate, YEAR(EntryDate) AS Result FROM products LIMIT 5;";
 $result = $conn->query($sql);
 ?>
 <head>
@@ -23,6 +23,7 @@ $result = $conn->query($sql);
 <table class='table table-striped table-hover rounded-3 overflow-hidden shadow-sm'>
     <thead style='background-color:#04AA6D; color:white'>
         <tr>
+            <th class=text-center>EntryDate</th>
             <th class=text-center>Result</th>
         </tr>
     </thead>
@@ -31,6 +32,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         echo "<tr>";
+        echo "<td class='text-center'>" . $row['EntryDate'] . "</td>";
         echo "<td class='text-center'>" . $row['Result'] . "</td>";
         echo "</tr>";
     }
